@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'fzfwzzay';
+    font-weight: normal;
+    src: url(/assets/fonts/fz-fw-zhuziayuan-d.woff);
+}
+@font-face {
+    font-family: 'hanyizhengyuan';
+    src: url(/assets/fonts/hanyizhengyuan.woff);
+}
+@font-face {
+    font-family: 'codeliaLigatures';
+    font-weight: normal;
+    src: url(/assets/fonts/codeliaLigatures-m.woff);
+}
+
+:root {
+    /* 全局字体 */
+    --base-font-family: codeliaLigatures,fzfwzzay,hanyizhengyuan,Optima-Regular,Optima,PingFang SC,Microsoft YaHei,sans-serif;
+    --base-font-size: 18px;
+
+    /* 定制首屏开启状态下的头部字体颜色 */
+    /* --first-screen-header-font-color-light: #526e25; 白昼模式 */
+    /* 黑夜模式 */
+    --first-screen-header-font-color-dark: #ffffff;
+
+    /* 定制首屏描述文字的 Y 轴偏移值 */
+    /* --first-screen-font-offset: 0; */
+
+    /* 定制首页文章模块鼠标悬浮时的缩放级别 */
+    --home-post-hover-scale: 1.01;
+
+    /* 主题色 */
+    --primary-color: #06c;
+}
+
+:root {
+    /* 首页 首屏文字跟文章的距离 */
+    --home-first-screen-height: calc(26vh + var(--header-height));
+}
+
+body {
+    letter-spacing: 0;
+}
+
+.post-copyright-info-container .copyright-info-content .copyright-info-bottom {
+    display: block;
+}
+.post-copyright-info-container .copyright-info-content .copyright-info-bottom .bottom-item .type {display: inline-block;}
+.post-copyright-info-container .copyright-info-content .copyright-info-bottom .bottom-item .content {display: inline-block;}
+
+.keep-markdown-body blockquote, .keep-markdown-body > .post blockquote {border-color: var(--primary-color);}
+
+/* ------------------ 首页 ------------------ */
+/* 首屏 */
+.page-container {overflow: hidden;}
+.first-screen-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: initial;
+}
+.first-screen-container .first-screen-content {
+    position: relative;
+    height: var(--home-first-screen-height);
+    margin: 0 auto 0;
+    z-index: 11;
+}
+/* 文章模块 */
+.page-main-content.is-home {
+    padding-top: calc(var(--header-height) * 0.2);
+    margin-top: var(--home-first-screen-height);
+}
+.home-content-container .home-post-list .home-post-item .home-post-item-bottom .home-post-content {
+    margin: 1.2rem 0;
+}
+/* ------------------ 首页 ------------------ */
+
+
+/* ------------------ 工具页 ------------------ */
+.page-template-container .tools-nav-box .tool-item-list .tool-item .a-wrap .top .logo img {
+    height: auto;
+}
+/* ------------------ 工具页 ------------------ */
+
+
+/* ------------------ 文章页 ------------------ */
+.post-page-container .post-content-container .post-content-bottom .post-header .avatar-box {
+    border: none;
+}
+.post-page-container .post-content-container .post-content-bottom .post-header .avatar-box img {background: none; height: auto;}
+
+.post-page-container .post-content-container .post-content-bottom .post-header {
+    align-items: center;
+}
+.keep-markdown-body ul li, .keep-markdown-body > .post ul li {margin-left: 1.8rem;}
+.keep-markdown-body ol li, .keep-markdown-body > .post ol li {margin-left: 2.5rem;}
+/* ------------------ 文章页 ------------------ */
