@@ -12,11 +12,10 @@ const srcDir = (config.site.themeConfig.srcDir || '') + '/';
 export default createContentLoader(`${srcDir}**/*.md`, {
   transform(raw): Theme.PageData[] {
     return raw.map((page) => {
-      const { url, frontmatter } = page;
-      console.log('>>>> url', url);
+      const { url, frontmatter, lastUpdated } = page;
+      console.log('>>>> lastUpdated', lastUpdated);
       const filepath = config.root + url.replace('.html', '.md');
       const stats = fs.statSync(path.resolve(filepath));
-      console.log('>>>> stats', stats.mtime);
 
       return {
         meta: {
