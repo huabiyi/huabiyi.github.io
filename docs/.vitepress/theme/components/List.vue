@@ -6,9 +6,9 @@ import '../ts/getPageData.ts';
 import Pagination from './Pagination.vue';
 
 const { site, page, frontmatter } = useData();
-console.log('>>>> frontmatter', frontmatter);
-console.log('>>>> page', page);
-console.log('>>>> site', site);
+// console.log('>>>> frontmatter', frontmatter);
+// console.log('>>>> page', page);
+// console.log('>>>> site', site);
 
 /**
  * showType：
