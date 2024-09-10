@@ -1,0 +1,24 @@
+// 圆角
+$radius: .625rem;
+@mixin Radius($radius: $radius) {
+  border-radius: $radius;
+}
+
+// 文本溢出省略号
+@mixin TextEllipsis($line: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @if $line == 1 {
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+  }
+}
+
+// 缓动过渡
+@mixin Transition($key: all, $dur: .2s, $timing: ease) {
+  transition: $key $dur $timing;
+}
