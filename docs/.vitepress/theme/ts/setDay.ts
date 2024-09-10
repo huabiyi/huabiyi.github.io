@@ -9,7 +9,8 @@ dayjs.tz.setDefault("Asia/Shanghai");
 
 const dayJS = {
   format(time: any, format = 'YYYY/MM/DD HH:mm:ss') {
-    return dayjs(time).format(format);
+    // console.log('>>>> dayjs(time).format(format)', dayjs(time).utc(false).format(format));
+    return dayjs(time).utc(false).format(format);
   }
 }
 
