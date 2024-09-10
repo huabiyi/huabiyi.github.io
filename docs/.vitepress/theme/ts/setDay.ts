@@ -1,14 +1,15 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import zh from 'dayjs/locale/zh';
+import timezone from 'dayjs/plugin/timezone';
 
 // 基础设置
-dayjs.locale(zh);
 dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault("Asia/Shanghai");
 
 const dayJS = {
   format(time: any, format = 'YYYY/MM/DD HH:mm:ss') {
-    return dayjs(time).utcOffset(0).format(format);
+    return dayjs(time).format(format);
   }
 }
 

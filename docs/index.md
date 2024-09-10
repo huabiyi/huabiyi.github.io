@@ -3,6 +3,7 @@
 layout: home
 excerpt: 首页信息
 date: 2024-08-30 14:08:01
+title: 首页1
 
 # hero:
 #   name: "Echo's blog"
@@ -25,4 +26,3 @@ date: 2024-08-30 14:08:01
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
-修改测试

@@ -11,13 +11,7 @@ export default defineConfig({
     }
   },
   themeConfig: {
-    lastUpdated: {
-      text: '更新于：',
-      formatOptions: {
-        dateStyle: 'full',
-        timeStyle: 'medium'
-      }
-    },
+    lastUpdated: true,
 
     nav: [
       { text: 'Home', link: '/' },
