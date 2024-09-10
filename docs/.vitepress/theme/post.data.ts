@@ -15,6 +15,7 @@ export default createContentLoader(`${srcDir}**/*.md`, {
         try {
           const gitDate = execSync(`git log -1 --pretty="%ai" ${url}`, { encoding: 'utf-8' }).trim();
           frontmatter.lastUpdated = gitDate;
+          console.log('>>>> frontmatter.lastUpdated', frontmatter.lastUpdated);
         } catch (error) {
           console.error(`Error fetching last updated time for ${url}:`, error);
         }
