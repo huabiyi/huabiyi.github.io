@@ -13,7 +13,7 @@ export default createContentLoader(`${srcDir}**/*.md`, {
     return raw.map(({ url, frontmatter }) => {
       if (!frontmatter?.lastUpdated) {
         try {
-          const gitDate = execSync(`git log -1 --format=%cd --date=short ${url}`, { encoding: 'utf-8' }).trim();
+          const gitDate = execSync(`git log -1 --pretty=%ai --date=short ${url}`, { encoding: 'utf-8' }).trim();
           frontmatter.lastUpdated = gitDate;
         } catch (error) {
           console.error(`Error fetching last updated time for ${url}:`, error);
