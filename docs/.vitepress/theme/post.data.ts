@@ -7,12 +7,11 @@ import dayJS from './ts/setDay';
 // 获取 data loader 中的配置信息
 const config: SiteConfig = (globalThis as any).VITEPRESS_CONFIG;
 const srcDir = (config.site.themeConfig.srcDir || '') + '/';
-console.log('>>>> config', config);
 
 export default createContentLoader(`${srcDir}**/*.md`, {
   transform(raw): Theme.PageData[] {
     return raw.map(({ url, frontmatter }) => {
-      const file = config.root + url;
+      const file = config.root + url.replace('.html', '.md');
       if (!frontmatter?.lastUpdated) {
         try {
           const gitDate = execSync(`git log -1 --format=%cd --date=short ${file}`, { encoding: 'utf-8' }).trim();
@@ -26,7 +25,7 @@ export default createContentLoader(`${srcDir}**/*.md`, {
           title: frontmatter?.title,
           excerpt: frontmatter?.excerpt,
           date: frontmatter?.date || new Date(),
-          lastUpdated: frontmatter.lastUpdated,
+          lastUpdated: frontmatter?.lastUpdated || '1',
           tags: frontmatter?.tags,
           categorize: frontmatter?.categorize,
           layout: frontmatter?.layout,
