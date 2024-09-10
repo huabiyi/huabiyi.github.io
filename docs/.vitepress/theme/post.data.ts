@@ -14,7 +14,7 @@ export default createContentLoader(`${srcDir}**/*.md`, {
       const file = config.root + url.replace('.html', '.md');
       if (!frontmatter?.lastUpdated) {
         try {
-          const gitDate = execSync(`git log -1 --format=%cd --date=short ${file}`, { encoding: 'utf-8' }).trim();
+          const gitDate = execSync(`git log -1 --format=%cd --date=default ${file}`, { encoding: 'utf-8' }).trim();
           frontmatter.lastUpdated = gitDate;
         } catch (error) {
           console.error(`Error fetching last updated time for ${file}:`, error);
@@ -25,7 +25,7 @@ export default createContentLoader(`${srcDir}**/*.md`, {
           title: frontmatter?.title,
           excerpt: frontmatter?.excerpt,
           date: frontmatter?.date || new Date(),
-          lastUpdated: frontmatter?.lastUpdated || '1',
+          lastUpdated: frontmatter?.lastUpdated,
           tags: frontmatter?.tags,
           categorize: frontmatter?.categorize,
           layout: frontmatter?.layout,
