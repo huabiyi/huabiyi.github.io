@@ -1,5 +1,5 @@
 // 圆角
-$radius: .625rem;
+$radius: .25rem;
 @mixin Radius($radius: $radius) {
   border-radius: $radius;
 }
@@ -21,4 +21,9 @@ $radius: .625rem;
 // 缓动过渡
 @mixin Transition($key: all, $dur: .2s, $timing: ease) {
   transition: $key $dur $timing;
+}
+
+// 投影
+@mixin Shadow($blur: .5rem, $color: --vp-c-text-3) {
+  box-shadow: 0 0 $blur var($color);
 }

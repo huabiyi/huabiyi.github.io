@@ -23,6 +23,7 @@ export namespace Theme {
      * @example 8 => 'UTC+8'
      */
     timeZone?: number
+    order?: string
 
     // 文章数据
     pageData?: PageData[]
@@ -36,14 +37,14 @@ export namespace Theme {
     route: string
   }
   export interface PageMeta {
-    title?: string
+    title: string
     date?: string
     lastUpdated?: string
-    description?: string
+    excerpt?: string
+    author?: string
     tags?: string[]
     categorize?: string[]
     layout?: string
-    // TODO： 文章列表顺序？
   }
 
   // 回到页面顶部

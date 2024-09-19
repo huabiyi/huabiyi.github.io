@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-
-import ChevronDoubleLeft from './icon/ChevronDoubleLeft.vue';
-import ChevronDoubleRight from './icon/ChevronDoubleRight.vue';
-import ChevronLeft from './icon/ChevronLeft.vue';
-import ChevronRight from './icon/ChevronRight.vue';
+import {
+  iChevronDoubleLeft,
+  iChevronDoubleRight,
+  iChevronLeft,
+  iChevronRight
+} from '../ts/iconSvg';
 
 const { total } = defineProps<{
   total: number
@@ -30,14 +31,14 @@ const handle = {
 
 <template>
   <div class="box-pagination">
-    <button @click="handle.sendCurr(1)" :class="['btn-first', handle.clickState(1)]"><ChevronDoubleLeft/></button>
-    <button @click="handle.sendCurr(--curr)" :class="['btn-prev', handle.clickState(1)]"><ChevronLeft/></button>
+    <button @click="handle.sendCurr(1)" :class="['btn-first', handle.clickState(1)]"><iChevronDoubleLeft/></button>
+    <button @click="handle.sendCurr(--curr)" :class="['btn-prev', handle.clickState(1)]"><iChevronLeft/></button>
     <div class="box-num">
-      <input type="text" class="curr" v-model="curr">
+      <input type="text" class="curr" v-model="curr" @keyup.enter="handle.sendCurr(curr)" @input="handle.sendCurr(curr)">
       <span> / {{total}}</span>
     </div>
-    <button @click="handle.sendCurr(++curr)" :class="['btn-next', handle.clickState(total)]"><ChevronRight/></button>
-    <button @click="handle.sendCurr(total)" :class="['btn-last', handle.clickState(total)]"><ChevronDoubleRight/></button>
+    <button @click="handle.sendCurr(++curr)" :class="['btn-next', handle.clickState(total)]"><iChevronRight/></button>
+    <button @click="handle.sendCurr(total)" :class="['btn-last', handle.clickState(total)]"><iChevronDoubleRight/></button>
   </div>
 </template>
 
@@ -51,7 +52,7 @@ const handle = {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1.875rem 0 0;
+  margin: 1.875rem 0;
   color: var(--vp-c-text-2);
 
   button {
